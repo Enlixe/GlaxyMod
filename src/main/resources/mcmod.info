@@ -1,0 +1,16 @@
+[
+  {
+    "modid": "glaxy",
+    "name": "Glaxy",
+    "description": "",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "https://enlixe.github.io",
+    "updateUrl": "",
+    "authorList": ["Enlixe"],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
