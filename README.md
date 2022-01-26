@@ -14,9 +14,11 @@
     <img alt="discord" src="https://img.shields.io/discord/524807341879853060?color=4166f5&label=discord&style=flat-square" />
   </a>
 </p>
-***
-A Hypixel Skyblock Utilities mod.
 
+***
+
+### A Hypixel Skyblock Utilities mod.
+<br/>
 
 ## Features
 <details>
@@ -28,6 +30,8 @@ A Hypixel Skyblock Utilities mod.
 
 More to come !
 
+<br/>
+
 <details>
   <summary>Commands</summary>
 
@@ -35,8 +39,9 @@ More to come !
 - /glaxy - Opens the main GUI. (Alias is /gx)
 </details>
 
-### Credits to Open Source Software
 ***
+
+### Credits to Open Source Software
 Glaxy would not be possible without other open source projects.
 
 [For more information, click here](https://github.com/Skytils/SkytilsMod/blob/main/OPEN_SOURCE_SOFTWARE.md "Credits")
