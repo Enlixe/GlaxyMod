@@ -1,5 +1,9 @@
-# GlaxyMod
-***
+# Glaxy Skyblock Mod
+
+A Hypixel Skyblock Utilities Mod. Provide QOL changes that enchances your Hypixel Skyblock experience. Created to add features I couldn't find in a mod, or if the mod was paid (which is against the [Mojang TOS](https://account.mojang.com/documents/commercial_guidelines)).
+
+---
+
 <p align="center">
   <a href="https://github.com/Enlixe/GlaxyMod/releases" target="_blank">
     <img alt="downloads" src="https://img.shields.io/github/v/release/Enlixe/GlaxyMod?color=4166f5&style=flat-square" />
@@ -15,33 +19,52 @@
   </a>
 </p>
 
-***
+---
 
-### A Hypixel Skyblock Utilities mod.
-<br/>
+### Features
 
-## Features
 <details>
   <summary>General</summary>
 
-### General
-- Nothing
+- GUI
+
 </details>
+<details>
+  <summary>Slayer</summary>
 
-More to come !
+- Highlight Slayer Bosses
 
+</details>
 <br/>
-
 <details>
   <summary>Commands</summary>
 
-## Commands
 - /glaxy - Opens the main GUI. (Alias is /gx)
+
 </details>
 
-***
+---
+
+<details>
+  <summary>Notes</summary>
+
+- API commands may take a while depending on your internet connection. The API may also go down.
+- If you use too many API commands too fast, you can and will get rate-limited.
+
+</details>
+<br/>
+<details>
+  <summary>Todo</summary>
+
+- [ ] Estimated dungeons score display
+- [ ] Better GUI
+
+</details>
+
+---
 
 ### Credits to Open Source Software
+
 Glaxy would not be possible without other open source projects.
 
 [For more information, click here](https://github.com/Skytils/SkytilsMod/blob/main/OPEN_SOURCE_SOFTWARE.md "Credits")
