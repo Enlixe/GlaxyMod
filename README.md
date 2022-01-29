@@ -27,12 +27,13 @@ A Hypixel Skyblock Utilities Mod. Provide QOL changes that enchances your Hypixe
   <summary>General</summary>
 
 - GUI
+- Loot Tracker
 
 </details>
 <details>
   <summary>Slayer</summary>
 
-- Highlight Slayer Bosses
+- Highlight Slayer Bosses (WIP)
 
 </details>
 <br/>
@@ -56,8 +57,11 @@ A Hypixel Skyblock Utilities Mod. Provide QOL changes that enchances your Hypixe
 <details>
   <summary>Todo</summary>
 
-- [ ] Estimated dungeons score display
+- [X] GUI
 - [ ] Better GUI
+- [X] Loot Tracker
+- [ ] Highlight Slayer Bosses
+- [ ] Estimated dungeons score display
 
 </details>
 
