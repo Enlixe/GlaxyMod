@@ -28,12 +28,14 @@ A Hypixel Skyblock Utilities Mod. Provide QOL changes that enchances your Hypixe
 
 - GUI
 - Loot Tracker
+- Skill Xp Tracker
 
 </details>
 <details>
   <summary>Slayer</summary>
 
 - Highlight Slayer Bosses (WIP)
+- Slayer Tracker
 
 </details>
 <br/>
@@ -41,6 +43,7 @@ A Hypixel Skyblock Utilities Mod. Provide QOL changes that enchances your Hypixe
   <summary>Commands</summary>
 
 - /glaxy - Opens the main GUI. (Alias is /gx)
+- /ghelp - Send list of glaxy command
 
 </details>
 
@@ -60,6 +63,8 @@ A Hypixel Skyblock Utilities Mod. Provide QOL changes that enchances your Hypixe
 - [X] GUI
 - [ ] Better GUI
 - [X] Loot Tracker
+- [X] Skill Tracker
+- [ ] Notify when someone lost a puzzle
 - [ ] Highlight Slayer Bosses
 - [ ] Estimated dungeons score display
 
