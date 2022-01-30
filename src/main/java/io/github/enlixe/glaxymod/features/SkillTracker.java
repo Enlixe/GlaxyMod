@@ -1,6 +1,5 @@
 package io.github.enlixe.glaxymod.features;
 
-
 import io.github.enlixe.glaxymod.Glaxy;
 import io.github.enlixe.glaxymod.commands.MoveCommand;
 import io.github.enlixe.glaxymod.commands.ScaleCommand;
@@ -25,7 +24,7 @@ import java.util.Locale;
 
 public class SkillTracker {
 
-    static String lastSkill = "Farming";
+    public static String lastSkill = "Farming";
     public static boolean showSkillTracker;
     public static StopWatch skillStopwatch = new StopWatch();
     static double farmingXP = 0;
@@ -66,7 +65,11 @@ public class SkillTracker {
 
                     int limit = section.contains("Farming") || section.contains("Enchanting") || section.contains("Mining") || section.contains("Combat") ? 60 : 50;
                     double currentXP = Double.parseDouble(section.substring(section.indexOf("(") + 1, section.indexOf("/")).replace(",", ""));
-                    int xpToLevelUp = Integer.parseInt(section.substring(section.indexOf("/") + 1, section.indexOf(")")).replaceAll(",", ""));
+                    int xpToLevelUp = Integer.parseInt(section.substring(section.indexOf("/") + 1, section.indexOf(")"))
+                        .replace("k", "000")
+                        .replace("m", "1000000")
+                        .replace("b", "1000000000")
+                        .replaceAll(",", ""));
                     xpLeft = xpToLevelUp - currentXP;
                     int previousXP = Utils.getPastXpEarned(xpToLevelUp, limit);
                     double totalXP = currentXP + previousXP;
