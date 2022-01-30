@@ -287,6 +287,126 @@ public class LootDisplay {
                             EnumChatFormatting.AQUA + timeBetween + "\n" +
                             EnumChatFormatting.AQUA + bossesBetween;
                     break;
+                case "enderman":
+                    if (LootTracker.endermanTime == -1) {
+                        timeBetween = "Never";
+                    } else {
+                        timeBetween = Utils.getTimeBetween(LootTracker.endermanTime, timeNow);
+                    }
+                    if (LootTracker.endermanBosses == -1) {
+                        bossesBetween = "Never";
+                    } else {
+                        bossesBetween = nf.format(LootTracker.endermanBosses);
+                    }
+                    if (ToggleCommand.slayerCountTotal) {
+                        drop20 = nf.format(LootTracker.endermanTAP);
+                    } else {
+                        drop20 = nf.format(LootTracker.endermanTAP) + " times";
+                    }
+
+                    dropsText = EnumChatFormatting.DARK_PURPLE + "Voidgloom Killed:\n" +
+                            EnumChatFormatting.LIGHT_PURPLE + "Null Sphere:\n" +
+                            EnumChatFormatting.LIGHT_PURPLE + "Twilight Arrow Poison:\n" +
+                            EnumChatFormatting.LIGHT_PURPLE + "Endersnake Runes:\n" +
+                            EnumChatFormatting.DARK_GREEN + "Summoning Eye:\n" +
+                            EnumChatFormatting.DARK_PURPLE + "Mana Steal I:\n" +
+                            EnumChatFormatting.DARK_GRAY + "Transmission Tuner:\n" +
+                            EnumChatFormatting.LIGHT_PURPLE + "Null Atom:\n" +
+                            EnumChatFormatting.BLUE + "Pocket Espresso:\n" +
+                            EnumChatFormatting.DARK_PURPLE + "Smarty Pants I:\n" +
+                            EnumChatFormatting.DARK_PURPLE + "End Runes:\n" +
+                            EnumChatFormatting.RED + "Handy Blood Chalice:\n" +
+                            EnumChatFormatting.RED + "Sinful Dice:\n" +
+                            EnumChatFormatting.DARK_PURPLE + "Artifact Upgrader:\n" +
+                            EnumChatFormatting.DARK_PURPLE + "Void Conqueror Skin:\n" +
+                            EnumChatFormatting.LIGHT_PURPLE + "Etherwarp Merger:\n" +
+                            EnumChatFormatting.WHITE + "Judgement Core:\n" +
+                            EnumChatFormatting.DARK_GRAY + "Enchant Runes:\n" +
+                            EnumChatFormatting.DARK_PURPLE + "Ender Slayer VII:\n" +
+                            EnumChatFormatting.AQUA + "Time Since RNG:\n" +
+                            EnumChatFormatting.AQUA + "Bosses Since RNG:";
+                    countText = EnumChatFormatting.DARK_PURPLE + nf.format(LootTracker.endermanVoids) + "\n" +
+                            EnumChatFormatting.LIGHT_PURPLE + nf.format(LootTracker.endermanNullSphere) + "\n" +
+                            EnumChatFormatting.LIGHT_PURPLE + drop20 + "\n" +
+                            EnumChatFormatting.LIGHT_PURPLE + LootTracker.endermanEndersnake + "\n" +
+                            EnumChatFormatting.DARK_GREEN + LootTracker.endermanSummoningEye + "\n" +
+                            EnumChatFormatting.DARK_PURPLE + LootTracker.endermanManasteal + "\n" +
+                            EnumChatFormatting.DARK_GRAY + LootTracker.endermanTrans + "\n" +
+                            EnumChatFormatting.LIGHT_PURPLE + LootTracker.endermanNullAtom + "\n" +
+                            EnumChatFormatting.BLUE + LootTracker.endermanPocket + "\n" +
+                            EnumChatFormatting.DARK_PURPLE + LootTracker.endermanSmartypants + "\n" +
+                            EnumChatFormatting.DARK_PURPLE + LootTracker.endermanEnd + "\n" +
+                            EnumChatFormatting.RED + LootTracker.endermanHandy + "\n" +
+                            EnumChatFormatting.RED + LootTracker.endermanSinful + "\n" +
+                            EnumChatFormatting.DARK_PURPLE + LootTracker.endermanEREAU + "\n" +
+                            EnumChatFormatting.DARK_PURPLE + LootTracker.endermanSkin + "\n" +
+                            EnumChatFormatting.LIGHT_PURPLE + LootTracker.endermanEtherwarp + "\n" +
+                            EnumChatFormatting.WHITE + LootTracker.endermanJudgement + "\n" +
+                            EnumChatFormatting.DARK_GRAY + LootTracker.endermanEnchant + "\n" +
+                            EnumChatFormatting.DARK_PURPLE + LootTracker.endermanEnderslayer + "\n" +
+                            EnumChatFormatting.AQUA + timeBetween + "\n" +
+                            EnumChatFormatting.AQUA + bossesBetween;
+                    break;
+                case "enderman_session":
+                    if (LootTracker.endermanTimeSession == -1) {
+                        timeBetween = "Never";
+                    } else {
+                        timeBetween = Utils.getTimeBetween(LootTracker.endermanTimeSession, timeNow);
+                    }
+                    if (LootTracker.endermanBossesSession == -1) {
+                        bossesBetween = "Never";
+                    } else {
+                        bossesBetween = nf.format(LootTracker.endermanBossesSession);
+                    }
+                    if (ToggleCommand.slayerCountTotal) {
+                        drop20 = nf.format(LootTracker.endermanTAPSession);
+                    } else {
+                        drop20 = nf.format(LootTracker.endermanTAPSession) + " times";
+                    }
+
+                    dropsText = EnumChatFormatting.DARK_PURPLE + "Voidgloom Killed:\n" +
+                            EnumChatFormatting.LIGHT_PURPLE + "Null Sphere:\n" +
+                            EnumChatFormatting.LIGHT_PURPLE + "Twilight Arrow Poison:\n" +
+                            EnumChatFormatting.LIGHT_PURPLE + "Endersnake Runes:\n" +
+                            EnumChatFormatting.DARK_GREEN + "Summoning Eye:\n" +
+                            EnumChatFormatting.DARK_PURPLE + "Mana Steal I:\n" +
+                            EnumChatFormatting.DARK_GRAY + "Transmission Tuner:\n" +
+                            EnumChatFormatting.LIGHT_PURPLE + "Null Atom:\n" +
+                            EnumChatFormatting.BLUE + "Pocket Espresso:\n" +
+                            EnumChatFormatting.DARK_PURPLE + "Smarty Pants I:\n" +
+                            EnumChatFormatting.DARK_PURPLE + "End Runes:\n" +
+                            EnumChatFormatting.RED + "Handy Blood Chalice:\n" +
+                            EnumChatFormatting.RED + "Sinful Dice:\n" +
+                            EnumChatFormatting.DARK_PURPLE + "Artifact Upgrader:\n" +
+                            EnumChatFormatting.DARK_PURPLE + "Void Conqueror Skin:\n" +
+                            EnumChatFormatting.LIGHT_PURPLE + "Etherwarp Merger:\n" +
+                            EnumChatFormatting.WHITE + "Judgement Core:\n" +
+                            EnumChatFormatting.DARK_GRAY + "Enchant Runes:\n" +
+                            EnumChatFormatting.DARK_PURPLE + "Ender Slayer VII:\n" +
+                            EnumChatFormatting.AQUA + "Time Since RNG:\n" +
+                            EnumChatFormatting.AQUA + "Bosses Since RNG:";
+                    countText = EnumChatFormatting.DARK_PURPLE + nf.format(LootTracker.endermanVoidsSession) + "\n" +
+                            EnumChatFormatting.LIGHT_PURPLE + nf.format(LootTracker.endermanNullSphereSession) + "\n" +
+                            EnumChatFormatting.LIGHT_PURPLE + drop20 + "\n" +
+                            EnumChatFormatting.LIGHT_PURPLE + LootTracker.endermanEndersnakeSession + "\n" +
+                            EnumChatFormatting.DARK_GREEN + LootTracker.endermanSummoningEyeSession + "\n" +
+                            EnumChatFormatting.DARK_PURPLE + LootTracker.endermanManastealSession + "\n" +
+                            EnumChatFormatting.DARK_GRAY + LootTracker.endermanTransSession + "\n" +
+                            EnumChatFormatting.LIGHT_PURPLE + LootTracker.endermanNullAtomSession + "\n" +
+                            EnumChatFormatting.BLUE + LootTracker.endermanPocketSession + "\n" +
+                            EnumChatFormatting.DARK_PURPLE + LootTracker.endermanSmartypantsSession + "\n" +
+                            EnumChatFormatting.DARK_PURPLE + LootTracker.endermanEndSession + "\n" +
+                            EnumChatFormatting.RED + LootTracker.endermanHandySession + "\n" +
+                            EnumChatFormatting.RED + LootTracker.endermanSinfulSession + "\n" +
+                            EnumChatFormatting.DARK_PURPLE + LootTracker.endermanEREAUSession + "\n" +
+                            EnumChatFormatting.DARK_PURPLE + LootTracker.endermanSkinSession + "\n" +
+                            EnumChatFormatting.LIGHT_PURPLE + LootTracker.endermanEtherwarpSession + "\n" +
+                            EnumChatFormatting.WHITE + LootTracker.endermanJudgementSession + "\n" +
+                            EnumChatFormatting.DARK_GRAY + LootTracker.endermanEnchantSession + "\n" +
+                            EnumChatFormatting.DARK_PURPLE + LootTracker.endermanEnderslayerSession + "\n" +
+                            EnumChatFormatting.AQUA + timeBetween + "\n" +
+                            EnumChatFormatting.AQUA + bossesBetween;
+                    break;
                 case "fishing":
                     if (LootTracker.empTime == -1) {
                         timeBetween = "Never";

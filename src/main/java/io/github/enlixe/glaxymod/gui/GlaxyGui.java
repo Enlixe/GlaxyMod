@@ -111,14 +111,18 @@ public class GlaxyGui extends GuiScreen {
 //        customMusic = new GuiButton(0, 0, 0, "Custom Music");
         outlineText = new GuiButton(0, 0, 0, "Outline Displayed Text: " + Utils.getColouredBoolean(ToggleCommand.outlineTextToggled));
         coords = new GuiButton(0, 0, 0, "Coordinate/Angle Display: " + Utils.getColouredBoolean(ToggleCommand.coordsToggled));
+        chatMaddox = new GuiButton(0, 0, 0, "Click On-Screen to Open Maddox: " + Utils.getColouredBoolean(ToggleCommand.chatMaddoxToggled));
+        rngesusAlert = new GuiButton(0, 0, 0, "RNGesus Alerts: " + Utils.getColouredBoolean(ToggleCommand.rngesusAlerts));
 
         allButtons.add(changeDisplay);
-        allButtons.add(puzzleSolvers);
-        allButtons.add(experimentationTableSolvers);
+//        allButtons.add(puzzleSolvers);
+//        allButtons.add(experimentationTableSolvers);
         allButtons.add(skillTracker);
-        allButtons.add(customMusic);
+//        allButtons.add(customMusic);
         allButtons.add(outlineText);
         allButtons.add(coords);
+        allButtons.add(chatMaddox);
+        allButtons.add(rngesusAlert);
 
         search.setText(initSearchText);
         search.setVisible(true);
@@ -194,14 +198,12 @@ public class GlaxyGui extends GuiScreen {
             }
         } else if (button == changeDisplay) {
             Glaxy.guiToOpen = "displaygui";
-        } else if (button == puzzleSolvers) {
-            Glaxy.guiToOpen = "puzzlesolvers";
-        } else if (button == experimentationTableSolvers) {
-            Glaxy.guiToOpen = "experimentsolvers";
         } else if (button == skillTracker) {
             Glaxy.guiToOpen = "skilltracker";
-        } else if (button == customMusic) {
-            Glaxy.guiToOpen = "custommusic";
+        } else if (button == chatMaddox) {
+            ToggleCommand.chatMaddoxToggled = !ToggleCommand.chatMaddoxToggled;
+            ConfigHandler.writeBooleanConfig("toggles", "ChatMaddox", ToggleCommand.chatMaddoxToggled);
+            chatMaddox.displayString = "Click On-Screen to Open Maddox: " + Utils.getColouredBoolean(ToggleCommand.chatMaddoxToggled);
         } else if (button == outlineText) {
             ToggleCommand.outlineTextToggled = !ToggleCommand.outlineTextToggled;
             ConfigHandler.writeBooleanConfig("toggles", "OutlineText", ToggleCommand.outlineTextToggled);
@@ -210,7 +212,12 @@ public class GlaxyGui extends GuiScreen {
             ToggleCommand.coordsToggled = !ToggleCommand.coordsToggled;
             ConfigHandler.writeBooleanConfig("toggles", "Coords", ToggleCommand.coordsToggled);
             coords.displayString = "Coordinate/Angle Display: " + Utils.getColouredBoolean(ToggleCommand.coordsToggled);
+        } else if (button == rngesusAlert) {
+            ToggleCommand.rngesusAlerts = !ToggleCommand.rngesusAlerts;
+            ConfigHandler.writeBooleanConfig("toggles", "RNGesusAlerts", ToggleCommand.rngesusAlerts);
+            rngesusAlert.displayString = "RNGesus Alerts: " + Utils.getColouredBoolean(ToggleCommand.rngesusAlerts);
         }
+
     }
 
     @Override

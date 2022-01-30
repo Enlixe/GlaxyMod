@@ -15,6 +15,7 @@ import java.util.List;
 
 public class ToggleCommand extends CommandBase implements ICommand {
     public static boolean coordsToggled;
+    public static boolean chatMaddoxToggled;
 
     public static boolean slayerCountTotal;
     public static boolean rngesusAlerts;
@@ -31,7 +32,7 @@ public class ToggleCommand extends CommandBase implements ICommand {
 
     @Override
     public String getCommandUsage(ICommandSender arg0) {
-        return "/" + getCommandName() + " <coords/slayercount/rngesusalerts/splitfishing/outlinetext/list>";
+        return "/" + getCommandName() + " <coords/chatmaddox/rngesusalerts/slayercount/rngesusalerts/splitfishing/outlinetext/list>";
     }
 
     public static String usage(ICommandSender arg0) {
@@ -46,7 +47,7 @@ public class ToggleCommand extends CommandBase implements ICommand {
     @Override
     public List<String> addTabCompletionOptions(ICommandSender sender, String[] args, BlockPos pos) {
         if (args.length == 1) {
-            return getListOfStringsMatchingLastWord(args, "coords", "slayercount","rngesusalerts", "splitfishing","outlinetext", "autoskilltracker", "list");
+            return getListOfStringsMatchingLastWord(args, "coords", "chatmaddox", "rngesusalerts","slayercount","rngesusalerts", "splitfishing","outlinetext", "autoskilltracker", "list");
         }
         return null;
     }
@@ -66,15 +67,20 @@ public class ToggleCommand extends CommandBase implements ICommand {
                 ConfigHandler.writeBooleanConfig("toggles", "Coords", coordsToggled);
                 player.addChatMessage(new ChatComponentText(Glaxy.MAIN_COLOUR + "Coord/Angle display has been set to " + Glaxy.SECONDARY_COLOUR + coordsToggled + Glaxy.MAIN_COLOUR + "."));
                 break;
-            case "slayercount":
-                slayerCountTotal = !slayerCountTotal;
-                ConfigHandler.writeBooleanConfig("toggles", "SlayerCount", slayerCountTotal);
-                player.addChatMessage(new ChatComponentText(Glaxy.MAIN_COLOUR + "Counting total 20% slayer drops has been set to " + Glaxy.SECONDARY_COLOUR + slayerCountTotal + Glaxy.MAIN_COLOUR + "."));
+            case "chatmaddox":
+                chatMaddoxToggled = !chatMaddoxToggled;
+                ConfigHandler.writeBooleanConfig("toggles", "ChatMaddox", chatMaddoxToggled);
+                player.addChatMessage(new ChatComponentText(Glaxy.MAIN_COLOUR + "Click screen to open Maddox menu has been set to " + Glaxy.SECONDARY_COLOUR + chatMaddoxToggled + Glaxy.MAIN_COLOUR + "."));
                 break;
             case "rngesusalerts":
                 rngesusAlerts = !rngesusAlerts;
                 ConfigHandler.writeBooleanConfig("toggles", "RNGesusAlerts", rngesusAlerts);
                 player.addChatMessage(new ChatComponentText(Glaxy.MAIN_COLOUR + "Slayer RNGesus alerts has been set to " + Glaxy.SECONDARY_COLOUR + rngesusAlerts + Glaxy.MAIN_COLOUR + "."));
+                break;
+            case "slayercount":
+                slayerCountTotal = !slayerCountTotal;
+                ConfigHandler.writeBooleanConfig("toggles", "SlayerCount", slayerCountTotal);
+                player.addChatMessage(new ChatComponentText(Glaxy.MAIN_COLOUR + "Counting total 20% slayer drops has been set to " + Glaxy.SECONDARY_COLOUR + slayerCountTotal + Glaxy.MAIN_COLOUR + "."));
                 break;
             case "splitfishing":
                 splitFishing = !splitFishing;
@@ -93,7 +99,9 @@ public class ToggleCommand extends CommandBase implements ICommand {
                 break;
             case "list":
                 player.addChatMessage(new ChatComponentText(
-                        Glaxy.TYPE_COLOUR + " Coord/Angle display: " + Glaxy.VALUE_COLOUR + coordsToggled +
+                        Glaxy.TYPE_COLOUR + " Coord/Angle display: " + Glaxy.VALUE_COLOUR + coordsToggled + "\n" +
+                        Glaxy.TYPE_COLOUR + " Chat Maddox menu: " + Glaxy.VALUE_COLOUR + chatMaddoxToggled + "\n" +
+                        Glaxy.TYPE_COLOUR + " Slayer RNGesus alerts: " + Glaxy.VALUE_COLOUR + rngesusAlerts + "\n" +
                         Glaxy.TYPE_COLOUR + " Slayer RNGesus alerts: " + Glaxy.VALUE_COLOUR + rngesusAlerts + "\n" +
                         Glaxy.TYPE_COLOUR + " Outline displayed text: " + Glaxy.VALUE_COLOUR + outlineTextToggled + "\n" +
                         Glaxy.TYPE_COLOUR + " Auto start/stop skill tracker: " + Glaxy.VALUE_COLOUR + autoSkillTrackerToggled + "\n"

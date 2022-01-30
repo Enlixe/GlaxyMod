@@ -24,6 +24,8 @@ import com.google.gson.GsonBuilder;
 import io.github.enlixe.glaxymod.commands.*;
 import io.github.enlixe.glaxymod.events.GuiChestBackgroundDrawnEvent;
 import io.github.enlixe.glaxymod.events.RenderOverlay;
+import io.github.enlixe.glaxymod.features.AutoDisplay;
+import io.github.enlixe.glaxymod.features.FasterMaddoxCalling;
 import io.github.enlixe.glaxymod.features.NoF3Coords;
 import io.github.enlixe.glaxymod.features.SkillTracker;
 import io.github.enlixe.glaxymod.features.loot.LootDisplay;
@@ -115,6 +117,7 @@ public class Glaxy {
         ClientCommandHandler.instance.registerCommand(new DisplayCommand());
         ClientCommandHandler.instance.registerCommand(new ToggleCommand());
         ClientCommandHandler.instance.registerCommand(new LootCommand());
+        ClientCommandHandler.instance.registerCommand(new SkillTrackerCommand());
         ClientCommandHandler.instance.registerCommand(new SlayerCommand());
 
         configDirectory = event.getModConfigurationDirectory().toString();
@@ -129,6 +132,8 @@ public class Glaxy {
         logger.info("= = = = = = = =");
 
         MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.register(new AutoDisplay());
+        MinecraftForge.EVENT_BUS.register(new FasterMaddoxCalling());
         MinecraftForge.EVENT_BUS.register(new LootDisplay());
         MinecraftForge.EVENT_BUS.register(new LootTracker());
         MinecraftForge.EVENT_BUS.register(new NoF3Coords());
@@ -285,9 +290,9 @@ public class Glaxy {
 //                    case "experimentsolvers":
 //                        mc.displayGuiScreen(new ExperimentsGui());
 //                        break;
-//                    case "skilltracker":
-//                        mc.displayGuiScreen(new SkillTrackerGui());
-//                        break;
+                    case "skilltracker":
+                        mc.displayGuiScreen(new SkillTrackerGui());
+                        break;
 //                    case "custommusic":
 //                        mc.displayGuiScreen(new CustomMusicGui());
 //                        break;
