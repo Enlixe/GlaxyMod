@@ -32,6 +32,7 @@ import io.github.enlixe.glaxymod.features.loot.LootDisplay;
 import io.github.enlixe.glaxymod.features.loot.LootTracker;
 import io.github.enlixe.glaxymod.gui.*;
 import io.github.enlixe.glaxymod.handlers.ConfigHandler;
+import io.github.enlixe.glaxymod.utils.UpdateChecker;
 import io.github.enlixe.glaxymod.utils.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
@@ -138,6 +139,8 @@ public class Glaxy {
         MinecraftForge.EVENT_BUS.register(new LootTracker());
         MinecraftForge.EVENT_BUS.register(new NoF3Coords());
         MinecraftForge.EVENT_BUS.register(new SkillTracker());
+
+        MinecraftForge.EVENT_BUS.register(new UpdateChecker());
 
         ConfigHandler.reloadConfig();
 
