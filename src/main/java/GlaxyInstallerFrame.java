@@ -177,7 +177,7 @@ public class GlaxyInstallerFrame extends JFrame implements ActionListener, Mouse
                 versionInfo.setFont(new Font(Font.DIALOG, Font.BOLD, 14));
                 versionInfo.setHorizontalAlignment(SwingConstants.CENTER);
                 versionInfo.setPreferredSize(new Dimension(w, h));
-                versionInfo.setText("NEU by Moulberry, Installer by Biscuit - for Minecraft 1.8.9");
+                versionInfo.setText("Glaxy by Enlixe, Installer by Biscuit - for Minecraft 1.8.9");
 
                 y += h;
             } catch (Throwable ivjExc) {

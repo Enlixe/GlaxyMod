@@ -534,7 +534,6 @@ public class LootTracker {
         } else if (message.contains("   Zombie Slayer LVL ")) { // Zombie
             zombieRevs++;
             zombieRevsSession++;
-            if (ToggleCommand.rngesusAlerts) Utils.createTitle(EnumChatFormatting.GOLD + "DEBUG!", 5);
             if (zombieBosses != -1) {
                 zombieBosses++;
             }
