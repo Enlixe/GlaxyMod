@@ -43,9 +43,9 @@ public class GlaxyGuiCommand extends CommandBase {
             debug.append("```md\n");
             debug.append("# Toggles\n");
             debug.append("[coords][").append(ToggleCommand.coordsToggled).append("]\n");
-            debug.append("[slayercount][").append(ToggleCommand.slayerCountTotal).append("]\n");
+//            debug.append("[slayercount][").append(ToggleCommand.slayerCountTotal).append("]\n");
             debug.append("[rngesusalerts][").append(ToggleCommand.rngesusAlerts).append("]\n");
-            debug.append("[splitfishing][").append(ToggleCommand.splitFishing).append("]\n");
+//            debug.append("[splitfishing][").append(ToggleCommand.splitFishing).append("]\n");
             debug.append("[outlinetext][").append(ToggleCommand.outlineTextToggled).append("]\n");
             debug.append("[autoskilltracker][").append(ToggleCommand.autoSkillTrackerToggled).append("]\n");
             debug.append("# Locations\n");

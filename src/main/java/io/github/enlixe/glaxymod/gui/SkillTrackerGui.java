@@ -1,6 +1,7 @@
 package io.github.enlixe.glaxymod.gui;
 
 import io.github.enlixe.glaxymod.Glaxy;
+import io.github.enlixe.glaxymod.commands.ToggleCommand;
 import io.github.enlixe.glaxymod.features.SkillTracker;
 import io.github.enlixe.glaxymod.handlers.ConfigHandler;
 import io.github.enlixe.glaxymod.handlers.TextRenderer;
@@ -8,6 +9,9 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.ScaledResolution;
+import net.minecraft.command.ICommandSender;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ChatComponentText;
 import org.apache.commons.lang3.time.StopWatch;
 
 public class SkillTrackerGui extends GuiScreen {
@@ -18,6 +22,8 @@ public class SkillTrackerGui extends GuiScreen {
     private GuiButton reset;
     private GuiButton hide;
     private GuiButton show;
+
+    private GuiButton auto;
 
     @Override
     public boolean doesGuiPauseGame() {
@@ -39,12 +45,16 @@ public class SkillTrackerGui extends GuiScreen {
         hide = new GuiButton(0, width / 2 - 70, (int) (height * 0.55), 60, 20, "Hide");
         show = new GuiButton(0, width / 2 + 10, (int) (height * 0.55), 60, 20, "Show");
 
+        auto = new GuiButton(0, width / 2 - 40, (int) (height * 0.35), 80, 20, "Auto");
+
         this.buttonList.add(start);
         this.buttonList.add(stop);
         this.buttonList.add(reset);
         this.buttonList.add(hide);
         this.buttonList.add(show);
         this.buttonList.add(goBack);
+
+        this.buttonList.add(auto);
     }
 
     @Override
@@ -55,6 +65,8 @@ public class SkillTrackerGui extends GuiScreen {
             stateText = "Timer: Running";
         } else if (!SkillTracker.skillStopwatch.isStarted() || SkillTracker.skillStopwatch.isSuspended()) {
             stateText = "Timer: Paused";
+        } else if (!ToggleCommand.autoSkillTrackerToggled) {
+            stateText = "Timer: Auto";
         }
         if (!SkillTracker.showSkillTracker) {
             stateText += " (Hidden)";
@@ -95,6 +107,10 @@ public class SkillTrackerGui extends GuiScreen {
         } else if (button == show) {
             SkillTracker.showSkillTracker = true;
             ConfigHandler.writeBooleanConfig("misc", "showSkillTracker", true);
+
+        } else if (button == auto) {
+            ToggleCommand.autoSkillTrackerToggled = !ToggleCommand.autoSkillTrackerToggled;
+            ConfigHandler.writeBooleanConfig("toggles", "AutoSkillTracker", ToggleCommand.autoSkillTrackerToggled);
         }
     }
 

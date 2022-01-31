@@ -45,6 +45,7 @@ public class GlaxyGui extends GuiScreen {
     private GuiButton goldenEnch;
     private GuiButton slayerCount;
     private GuiButton rngesusAlert;
+    private GuiButton failPuzzleAlert;
     private GuiButton splitFishing;
     private GuiButton chatMaddox;
     private GuiButton spiritBearAlert;
@@ -60,22 +61,7 @@ public class GlaxyGui extends GuiScreen {
     private GuiButton autoSkillTracker;
     private GuiButton highlightArachne;
     private GuiButton highlightSlayer;
-    // Chat Messages
-    private GuiButton sceptreMessages;
-    private GuiButton midasStaffMessages;
-    private GuiButton implosionMessages;
-    private GuiButton healMessages;
-    private GuiButton cooldownMessages;
-    private GuiButton manaMessages;
-    private GuiButton killComboMessages;
-    // Dungeons
-    private GuiButton dungeonTimer;
-    private GuiButton lowHealthNotify;
-    private GuiButton lividSolver;
-    private GuiButton stopSalvageStarred;
-    private GuiButton watcherReadyMessage;
-    private GuiButton necronNotifications;
-    private GuiButton bonzoTimer;
+
 
     public GlaxyGui(int page, String searchText) {
         this.page = page;
@@ -105,24 +91,23 @@ public class GlaxyGui extends GuiScreen {
         search = new GuiTextField(0, this.fontRendererObj, width - 202, 5, 200, 20);
 
         changeDisplay = new GuiButton(0, 0, 0, "Change Display Settings");
-//        puzzleSolvers = new GuiButton(0, 0, 0, "Toggle Dungeons Puzzle Solvers");
-//        experimentationTableSolvers = new GuiButton(0, 0, 0, "Toggle Experimentation Table Solvers");
         skillTracker = new GuiButton(0, 0, 0, "Toggle Skill XP/Hour Tracking");
-//        customMusic = new GuiButton(0, 0, 0, "Custom Music");
+        autoSkillTracker = new GuiButton(0,0,0, "Toggle Auto Skill Tracking");
         outlineText = new GuiButton(0, 0, 0, "Outline Displayed Text: " + Utils.getColouredBoolean(ToggleCommand.outlineTextToggled));
         coords = new GuiButton(0, 0, 0, "Coordinate/Angle Display: " + Utils.getColouredBoolean(ToggleCommand.coordsToggled));
         chatMaddox = new GuiButton(0, 0, 0, "Click On-Screen to Open Maddox: " + Utils.getColouredBoolean(ToggleCommand.chatMaddoxToggled));
+        highlightSlayer = new GuiButton(0, 0, 0, "Slayer ESP: " + Utils.getColouredBoolean(ToggleCommand.highlightSlayers));
         rngesusAlert = new GuiButton(0, 0, 0, "RNGesus Alerts: " + Utils.getColouredBoolean(ToggleCommand.rngesusAlerts));
+        failPuzzleAlert = new GuiButton(0, 0, 0, "Fail Puzzle Alerts: " + Utils.getColouredBoolean(ToggleCommand.failPuzzleAlerts));
 
         allButtons.add(changeDisplay);
-//        allButtons.add(puzzleSolvers);
-//        allButtons.add(experimentationTableSolvers);
         allButtons.add(skillTracker);
-//        allButtons.add(customMusic);
         allButtons.add(outlineText);
         allButtons.add(coords);
         allButtons.add(chatMaddox);
+        allButtons.add(highlightSlayer);
         allButtons.add(rngesusAlert);
+        allButtons.add(failPuzzleAlert);
 
         search.setText(initSearchText);
         search.setVisible(true);
@@ -212,10 +197,18 @@ public class GlaxyGui extends GuiScreen {
             ToggleCommand.coordsToggled = !ToggleCommand.coordsToggled;
             ConfigHandler.writeBooleanConfig("toggles", "Coords", ToggleCommand.coordsToggled);
             coords.displayString = "Coordinate/Angle Display: " + Utils.getColouredBoolean(ToggleCommand.coordsToggled);
+        } else if (button == highlightSlayer) {
+            ToggleCommand.highlightSlayers = !ToggleCommand.highlightSlayers;
+            ConfigHandler.writeBooleanConfig("toggles", "HighlightSlayer", ToggleCommand.highlightSlayers);
+            highlightSlayer.displayString = "Slayer ESP: " + Utils.getColouredBoolean(ToggleCommand.highlightSlayers);
         } else if (button == rngesusAlert) {
             ToggleCommand.rngesusAlerts = !ToggleCommand.rngesusAlerts;
             ConfigHandler.writeBooleanConfig("toggles", "RNGesusAlerts", ToggleCommand.rngesusAlerts);
             rngesusAlert.displayString = "RNGesus Alerts: " + Utils.getColouredBoolean(ToggleCommand.rngesusAlerts);
+        } else if (button == failPuzzleAlert) {
+            ToggleCommand.failPuzzleAlerts = !ToggleCommand.failPuzzleAlerts;
+            ConfigHandler.writeBooleanConfig("toggles", "FailPuzzleAlerts", ToggleCommand.failPuzzleAlerts);
+            failPuzzleAlert.displayString = "Fail Puzzle Alerts: " + Utils.getColouredBoolean(ToggleCommand.failPuzzleAlerts);
         }
 
     }

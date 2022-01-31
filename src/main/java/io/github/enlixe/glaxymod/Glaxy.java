@@ -18,16 +18,10 @@
 
 package io.github.enlixe.glaxymod;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 import io.github.enlixe.glaxymod.commands.*;
 import io.github.enlixe.glaxymod.events.GuiChestBackgroundDrawnEvent;
 import io.github.enlixe.glaxymod.events.RenderOverlay;
-import io.github.enlixe.glaxymod.features.AutoDisplay;
-import io.github.enlixe.glaxymod.features.FasterMaddoxCalling;
-import io.github.enlixe.glaxymod.features.NoF3Coords;
-import io.github.enlixe.glaxymod.features.SkillTracker;
+import io.github.enlixe.glaxymod.features.*;
 import io.github.enlixe.glaxymod.features.loot.LootDisplay;
 import io.github.enlixe.glaxymod.features.loot.LootTracker;
 import io.github.enlixe.glaxymod.gui.*;
@@ -65,8 +59,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import org.lwjgl.input.Keyboard;
 
-import java.io.*;
-import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -82,7 +74,7 @@ public class Glaxy {
     public static final String
         MODID = "glaxy",
         NAME = "Glaxy",
-        VERSION = "0.1.0",
+        VERSION = "0.1.1",
         VERSION_ID = "010";
 
     public static final Logger logger = Logger.getLogger(Glaxy.MODID);
@@ -139,14 +131,16 @@ public class Glaxy {
         MinecraftForge.EVENT_BUS.register(new LootTracker());
         MinecraftForge.EVENT_BUS.register(new NoF3Coords());
         MinecraftForge.EVENT_BUS.register(new SkillTracker());
+        MinecraftForge.EVENT_BUS.register(new SlayerESP());
+        MinecraftForge.EVENT_BUS.register(new FailPuzzleAlert());
 
         MinecraftForge.EVENT_BUS.register(new UpdateChecker());
 
         ConfigHandler.reloadConfig();
 
-        keyBindings[0] = new KeyBinding("Open Maddox Menu", Keyboard.KEY_M, "Danker's Skyblock Mod");
-        keyBindings[1] = new KeyBinding("Regular Ability", Keyboard.KEY_NUMPAD4, "Danker's Skyblock Mod");
-        keyBindings[2] = new KeyBinding("Start/Stop Skill Tracker", Keyboard.KEY_NUMPAD5, "Danker's Skyblock Mod");
+        keyBindings[0] = new KeyBinding("Open Maddox Menu", Keyboard.KEY_M, "Glaxy Mod");
+        keyBindings[1] = new KeyBinding("Regular Ability", Keyboard.KEY_NUMPAD4, "Glaxy Mod");
+        keyBindings[2] = new KeyBinding("Start/Stop Skill Tracker", Keyboard.KEY_NUMPAD5, "Glaxy Mod");
 
         for (KeyBinding keyBinding : keyBindings) {
             ClientRegistry.registerKeyBinding(keyBinding);
