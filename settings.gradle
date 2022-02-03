@@ -2,27 +2,22 @@ pluginManagement {
     repositories {
         mavenCentral()
         gradlePluginPortal()
-
         maven {
-            name = "sonatype"
-            url = "https://oss.sonatype.org/content/repositories/snapshots"
+            name = "Forge"
+            url = "https://maven.minecraftforge.net"
         }
-        maven { url = uri("https://maven.minecraftforge.net/") }
-        maven { url = uri("https://jitpack.io") }
+        maven {
+            name = "Jitpack"
+            url = "https://jitpack.io/"
+        }
     }
     resolutionStrategy {
         eachPlugin {
-            switch (requested.id.id) {
-            // If the "net.minecraftforge.gradle.forge" plugin is requested we redirect it to asbyth's ForgeGradle fork
-                case "net.minecraftforge.gradle.forge":
-                    useModule("com.github.asbyth:ForgeGradle:${requested.version}")
-                    break;
-                case "org.spongepowered.mixin":
-                    useModule("com.github.Skytils:mixingradle:${requested.version}")
-                    break;
+            if (requested.id.id == "net.minecraftforge.gradle.forge") {
+                useModule("com.github.asbyth:ForgeGradle:${requested.version}")
             }
         }
     }
 }
 
-rootProject.name = "ForgeTemplate"
+rootProject.name = "Glaxy"

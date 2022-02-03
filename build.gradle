@@ -2,11 +2,9 @@ plugins {
     id "java"
     id "com.github.johnrengelman.shadow" version "6.1.0"
     id "net.minecraftforge.gradle.forge" version "6f53277"
-
-    // id "org.spongepowered.mixin" version "d5f9873d60"
 }
 
-version = "0.1.1"
+version = "0.1.2"
 group = "io.github.enlixe.glaxymod"
 archivesBaseName = "Glaxy"
 
@@ -18,56 +16,27 @@ minecraft {
     runDir = "run"
     mappings = "stable_22"
     makeObfSourceJar = false
-    // clientRunArgs += "--tweakClass org.spongepowered.asm.launch.MixinTweaker"
-    // clientRunArgs += "--mixin mixins.glaxy.json"
 }
-
-repositories {
-    google()
-    mavenCentral()
-    maven { url "https://repo.spongepowered.org/repository/maven-public/" }
-    maven { url "https://repo.sk1er.club/repository/maven-public" }
-}
-
 
 configurations {
     include
     implementation.extendsFrom(include)
 }
 
-dependencies {
-//    include("org.spongepowered:mixin:0.7.11-SNAPSHOT") {
-//        exclude module: 'guava'
-//        exclude module: 'commons-io'
-//        exclude module: 'gson'
-//    }
-//    annotationProcessor("org.spongepowered:mixin:0.7.11-SNAPSHOT")
-//
-//    implementation 'com.google.code.gson:gson:2.8.9'
-}
+repositories {}
 
-//mixin {
-//    add sourceSets.main, "mixins.glaxy.refmap.json"
-//}
+dependencies {
+    // How to normally add a dependency (If you don't want it to be added to the jar)
+    // implementation "com.example:example:1.0.0"
+    // If you would like to include it (have the library inside your jar) instead use
+    // include "com.example:example:1.0.0"
+}
 
 jar {
-//    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-
     manifest.attributes(
             'Main-Class': 'GlaxyInstallerFrame',
-//            "FMLCorePluginContainsFMLMod": true,
-//            "ForceLoadAsMod": true,
-//            "MixinConfigs": "mixins.glaxy.json",
-//            "ModSide": "CLIENT",
-//            "TweakClass": "org.spongepowered.asm.launch.MixinTweaker",
-//            "TweakOrder": "0",
     )
-
-//    from {
-//        configurations.packageLib.collect { it.isDirectory() ? it : zipTree(it) }
-//    }
 }
-
 
 /**
  * This task simply replaces the `${version}` and `${mcversion}` properties in the mcmod.info with the data from Gradle
@@ -78,7 +47,6 @@ processResources {
 
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
-
         expand 'version': project.version, 'mcversion': project.minecraft.version
     }
 
@@ -96,7 +64,6 @@ sourceSets {
     }
 }
 
-// This adds support to ("embed", "shade", "include") libraries into our JAR
 shadowJar {
     archiveClassifier.set('')
     configurations = [project.configurations.include]
