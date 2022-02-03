@@ -14,12 +14,18 @@ import net.minecraft.util.StringUtils;
 
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
+import java.util.Collections;
+import java.util.List;
 
 public class GlaxyGuiCommand extends CommandBase {
 
     @Override
     public String getCommandName() {
         return "glaxy";
+    }
+
+    public List<String> getCommandAliases() {
+        return Collections.singletonList("gx");
     }
 
     @Override
